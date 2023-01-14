@@ -9,16 +9,8 @@
               <img src="/assests/Logo.png" alt="Logo" width="40" class="d-inline-block align-text-top">
               Online-Booking
           </a>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/contact">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Cate">Departments</a>
-            </li>
-          </ul>
-
-          <div class="d-flex">
+         
+          <div class="d-flex position-top-50">
               @auth
               <form action="/logout" method="post">
                   @csrf

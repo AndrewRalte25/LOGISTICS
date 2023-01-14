@@ -4,6 +4,7 @@
     <div class="login-box text-center">
         <h1>Login</h1>
         <form action ="login.php" method = "post" >
+         @csrf
         <div  class="form-group">
             <input type="text" name="username" placeholder= "Username/Password" required >
             

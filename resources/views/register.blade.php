@@ -1,7 +1,10 @@
 @extends('master')
 @section('content')
-        <h1>Signup</h1>
+ 
+        <div class="login-box text-center">
+            <h1>Signup</h1>
         <form action="sign.php" method="post">
+            @csrf
             <div class="form-group">
                 <input type="text" required placeholder="Name" name="name">
                
@@ -25,4 +28,5 @@
         </form>
         <b style="font-size:20px"> Already have an Account?</b> 
         <a class="forgot" href='index.php'>Login</a>
+    </div>  
 @endsection
