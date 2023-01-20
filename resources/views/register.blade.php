@@ -3,30 +3,40 @@
  
         <div class="login-box text-center">
             <h1>Signup</h1>
-        <form action="sign.php" method="post">
+        <form action="/register" method="post">
             @csrf
-            <div class="form-group">
-                <input type="text" required placeholder="Name" name="name">
+            <div class="mb-3">
+                <input type="text" placeholder="Name" name="name">
+                @error('name')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
                
             </div>
-            <div class="form-group">
-                <input type="text" required placeholder="Email" name="email">
+            <div class="mb-3">
+                <input type="text" placeholder="Email" name="email">
+                @error('email')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
                 
             </div>
-            <div class="form-group">
-                <input type="password" required placeholder="Password" name="pass">
+            <div class="mb-3">
+                <input type="password"  placeholder="Password" name="password">
+                @error('password')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
            
             </div>
-            <div class="form-group">
-                <input type="password" required placeholder="Confirm Password" name="pass2">
-               
+            <input type="password" placeholder="Confirm Password" name="password_confirmation">
+            <div class="mb-3">
+                @error('password_confirmation')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+                
             </div>
             
             <div class="submit">
                 <input type="submit" value="Submit" name="signsub">		
             </div>
         </form>
-        <b style="font-size:20px"> Already have an Account?</b> 
-        <a class="forgot" href='index.php'>Login</a>
     </div>  
 @endsection
