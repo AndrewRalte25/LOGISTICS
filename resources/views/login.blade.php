@@ -6,15 +6,16 @@
         <form action ="/login" method = "post" >
          @csrf
         <div  class="form-group">
-            <input type="text" name="name" placeholder= "Username/Password" required >
-            @error('email')
+            <input type="text" name="name" placeholder= "Username/Email"  >
+            @error('name')
             <small class="text-danger">{{ $message }}</small>
             @enderror
+        
             
         </div>
         <div class="form-group">
-            <input type="password" name="password" placeholder= "Password" required>
-            @error('pass')
+            <input type="password" name="password" placeholder= "Password" >
+            @error('password')
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
