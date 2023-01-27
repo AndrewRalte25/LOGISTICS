@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\categoryRequest ;
-use App\Models\Categories;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 
@@ -11,39 +11,33 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-         $cats = Categories::with('items')->orderBy('code', 'asc')->get();
-         return view('categories', compact('cats'));
+         $category = Category::get();
+         return view('categories', compact('category'));
         
     }
     
     public function create()
     {
-        //
+        return view('cateadd');
     }
-    public function store(categoryRequest $request)
+    public function store(Request $request)
     {
-        $data = new Categories();
+        $data = new Category();
         $data->name = $request->name;
         $data->code = $request->code;
-       
-
         $data->save();
-        return redirect('/category')->with('success', 'Category Added Sucessfully');
+        return redirect('/categories')->with('success', 'Category Added Sucessfully');
     }
 
   
     public function show($id)
     {
-        $data = Categories::findOrFail($id);
-        return view('category-details', compact('data'));
-    }
-    public function edit($id)
-    {
         //
     }
+   
     public function update(categoryRequest $request, $id)
     {
-        $data = Categories::findOrFail($id);
+        $data = Category::findOrFail($id);
         $data->name = $request->name;
         $data->code = $request->code;
         $data->save();
@@ -53,11 +47,8 @@ class CategoriesController extends Controller
 
     public function destroy($id)
     {
-        Categories::destroy($id);
+        Category::destroy($id);
         return redirect('/categories')->with('success', ' deleted successfully');
     }
-    public function pages()
-    {
-        return view('pages');
-    }
+
 }

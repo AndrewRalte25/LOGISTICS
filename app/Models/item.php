@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories extends Model
+class item extends Model
 {
     use HasFactory;
-    
     protected $fillable = [
+        'category_id',
         'name',
-        'code',
+        'limit',
     ];
 
     protected $hidden = [
@@ -20,13 +20,11 @@ class Categories extends Model
     ];
 
     protected $casts = [
-        'name' => 'string',
-        'code' => 'string',
+        
     ];
 
-    public function items()
+    public function category()
     {
-        return $this->hasMany(Items::class);
+        return $this->belongsTo(Category::class);
     }
 }
-

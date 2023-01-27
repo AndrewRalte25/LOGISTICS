@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\itemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,13 @@ Route::post('/register',[UserController::class,'register']);
 Route::get('/admin', [LoginController::class, 'admin']);
 
 Route::get('/categories', [CategoriesController::class, 'index']);
-Route::get('/categories/{id}', [CategoriesController::class, 'show']);
-Route::post('/categories', [CategoriesController::class, 'store']);
-Route::put('/categories/{id}', [CategoriesController::class, 'update']);
+Route::put('/categories', [CategoriesController::class, 'update']);
 Route::delete('/categories/{id}', [CategoriesController::class, 'destroy']);
+Route::Post('/cateadd', [CategoriesController::class, 'store']);
+Route::get('/cateadd', [CategoriesController::class, 'create']);
+
+Route::get('/items', [itemController::class, 'index']);
+Route::put('/items', [itemController::class, 'update']);
+Route::delete('/items/{id}', [itemController::class, 'destroy']);
+Route::Post('/itemadd', [itemController::class, 'store']);
+Route::get('/itemadd', [itemController::class, 'create']);

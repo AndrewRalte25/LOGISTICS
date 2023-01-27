@@ -21,37 +21,39 @@
         </button>
       
     </nav>
-    <a class="btn btn-dark" href="/CateAdd" role="button">Add Category</a>
-    <H2>DEPARTMENT LIST</h2>
-    <div class="container" style="display: flex; justify-content: center; align-items: center; height: 50vh">
-        
-    
-        <table class="table table-bordered text-center">
-            <thead class="thead-dark">
+    <div class="container-fluid">
+        <a class="btn btn-primary" href="/itemAdd" role="button">Add ITEM</a>
+    <div>Items LIST</div>
+        <table class="table">
+            <tr>
+              <th>ID</th>
+              <th>Category_id</th>
+              <th>NAME</th>
+              <th>LIMIT</th>
+
+            </tr>
+            @foreach ($item as $itm)
                 <tr>
-                     <th>ID</th>
-                     <th>NAME</th>
-                     <th>ACTION</th>
-                </tr>
-            </thead>    
-        <tbody>
-            @foreach ($category as $cat)
-                <tr>
-                  <td>{{ $cat->id }}</td>
-                  <td>{{ $cat->name }}</td>
+                  <td>{{ $itm->id }}</td>
+                  <td>{{ $itm->name }}</td>
                   <td>
                     
 
-                    <form action="{{ '/categories/' . $cat->id }}" method="post">
+                    <form action="{{ '/items/' . $itm->id }}" method="post">
                         @csrf
                         @method('DELETE')
 
                         <button type="submit">DELETE</button>
                     </form>
+                    <form action="{{ '/items/' . $itm->id }}" method="post">
+                        @csrf
+                        @method('Update')
+
+                        <button type="submit">Edit</button>
+                    </form>
                   </td>
                 </tr>
             @endforeach
-        </tbody>
         </table>
         
     </div>
