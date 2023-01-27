@@ -23,6 +23,8 @@ Route::post('/login',[UserController::class,'login']);
 Route::get('/register',[LoginController::class,'register']);
 Route::post('/register',[UserController::class,'register']);
 Route::get('/admin', [LoginController::class, 'admin']);
+Route::post('/Logout', [UserController::class, 'logout']);
+
 
 Route::get('/categories', [CategoriesController::class, 'index']);
 Route::put('/categories', [CategoriesController::class, 'update']);

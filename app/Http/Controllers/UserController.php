@@ -32,5 +32,10 @@ class UserController extends Controller
             return redirect('/')->with('failure', 'Login Failed');
         }
     }
+    public function logout()
+    {
+       Auth::logout();
+       return redirect('/login')->with('success', 'You are now logged out.');;
+     }
 }
 

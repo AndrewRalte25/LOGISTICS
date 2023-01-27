@@ -46,7 +46,10 @@
                 <a href="#book" class="nav-link">Events</a>
               </li>
               <li class="nav-item">
-                <a href="/logout" class="nav-link">Logout</a>
+                <form action="/logout" method="POST" class="d-inline">
+                  @csrf
+                  <button class="btn btn-sm btn-dark pt-2">Sign Out</button>
+                </form>
               </li>
               
               @endguest
